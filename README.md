@@ -112,54 +112,6 @@ This datalake is **user-centric** by design:
 
 > **Note:** The exact architecture may differ between the open/public parts and the private production system. This section documents the conceptual design that the repository components align with.
 
-### High-Level System Diagram
-
-```mermaid
-flowchart LR
-    subgraph Mobile
-      A[LifeCopilot App<br/>(iOS/Android)]
-      V[Voice Input]
-      U[User Actions<br/>(tasks, goals, notes)]
-    end
-
-    subgraph DeviceSignals
-      H[Health Data<br/>(Sleep, HRV, Activity)]
-      C[Calendar]
-      L[Location / Context]
-    end
-
-    subgraph Backend
-      I[Ingestion Layer]
-      D[(Personal Datalake)]
-      M[Analytics & ML Engine]
-      G[Energy Calendar Engine]
-      AI[AI Copilot API]
-    end
-
-    subgraph Ecosystem
-      X1[3rd-party Apps]
-      X2[Partner Services]
-    end
-
-    A --> I
-    V --> I
-    U --> I
-
-    H --> I
-    C --> I
-    L --> I
-
-    I --> D
-    D --> M
-    M --> G
-    M --> AI
-    G --> A
-    AI --> A
-
-    X1 <---> AI
-    X2 <---> AI
-````
-
 
 ### Core Services
 
